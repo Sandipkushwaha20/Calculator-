@@ -14,13 +14,13 @@ let flag = false;
 let string = "";
 let cnt = 0,
   cnt0 = 0; // cnt is used to count the no. of operators and cnt0 for zero
-let cntPoint = 0; // cntPoint will store the count of .
+let cntPoint = 0; // cntPoint will store the count of.
 let cntOther = 0; // cntOther for any other events
 
 //Input part
 
 //Detecting button press
-// Apply a forEach loop to access array elements individualy
+// Apply a forEach loop to access array elements individually
 buttonArray.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     //click sound for buttons
@@ -29,7 +29,7 @@ buttonArray.forEach((btn) => {
 
     let buttonInnerHTML = e.target.innerHTML;
 
-    //Error handling : 9/00000
+    //Error handling: 9/00000
     if (buttonInnerHTML == "0" && cntOther == 0) cnt0++, (cntOther = 0);
     //Error handling: --- or ... or ***  etc
     else if (
@@ -56,10 +56,8 @@ document.addEventListener("keypress", function (event) {
     //click sound for buttons
     let crash = new Audio("Click.wav");
     crash.play();
-    //Error handling : 9/00000
-    if (event.key == "0" && cntOther == 0) cnt0++, (cntOther = 0);
 
-    //Error handling : 9/00000
+    //Error handling: 9/00000
     if (event.key == "0" && cntOther == 0) cnt0++, (cntOther = 0);
     //Error handling: --- or ... or ***  etc
     else if (
@@ -101,7 +99,7 @@ function performCalculation(key) {
     display.value = string;
   }
 
-  //Error handling : ====
+  //Error handling: ====
   else if (string.length == 0 && key == "=") string = "";
   else if (key == "DEL") {
     string = string.slice(0, -1); //Or string = string.substring(0 , string.length - 1);
@@ -115,15 +113,15 @@ function performCalculation(key) {
 
     display.value = string;
   } else if (key == "=") {
-    // eval() convert stirng to code then, it calculate
+    // eval() convert string to code then, it calculates
     // Error handling : 9/0 or 4/00 or 8%0 or 3%00
     if (isValid(string)) {
-      let a = string; // Error handling : 8== then +(any key) result 0+(wrong) =>8+(currect)
+      let a = string; // Error handling : 8== then +(any key) result 0+(wrong) =>8+(correct)
       string = calculateExpression(string); // string = eval(string); can be use but could be dangerous
 
       if (string == "Infinity" || string == "-Infinity") {
         // alert(
-        //   'Error: Your operation is leads to "division by zero"'
+        //   'Error: Your operation leads to "division by zero"'
         // );
         string = "Cannot divide by zero";
       }
@@ -142,7 +140,7 @@ function performCalculation(key) {
   }
 }
 
-//cheking validation of a number
+//checking validation of a number
 function isValid(expression) {
   try {
     // Use eval to evaluate the expression
